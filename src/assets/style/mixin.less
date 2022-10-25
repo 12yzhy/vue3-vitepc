@@ -1,0 +1,18 @@
+// flex 布局
+.flex-box(@fd: row, @jc: center, @ai: center, @fw: nowrap) {
+  display: flex;
+  flex-direction: @fd;
+  justify-content: @jc;
+  align-items: @ai;
+  /* stylelint-disable-next-line declaration-block-no-redundant-longhand-properties */
+  flex-wrap: @fw;
+}
+
+// 多行文字
+.text-line(@line: 2) {
+  display: box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical; // 避免压缩后删除此行
+  -webkit-line-clamp: @line; // 显示省略号行数
+}

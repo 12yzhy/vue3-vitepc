@@ -1,0 +1,185 @@
+// 公共样式
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.border-box {
+  box-sizing: border-box;
+}
+
+//单行文字超出隐藏
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// 滚动条样式
+::-webkit-scrollbar {
+  width: 7px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgb(0 0 0 / 5%);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(144 147 153 / 20%);
+  border-radius: 2px;
+  box-shadow: inset 0 0 6px rgb(0 0 0 / 20%);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(144 147 153 / 50%);
+}
+
+// 函数生成常用间距clss
+// ml1 margin-left:1px
+// ml20 margin-left:20px
+.for(@i) when(@i <=200) {
+  //@i
+  .for(@i + 1); //@i + 1 相当于"++i"
+
+  .ml@{i} {
+    margin-left: @i* (1px);
+  }
+
+  .mt@{i} {
+    margin-top: @i* (1px);
+  }
+
+  .mb@{i} {
+    margin-bottom: @i* (1px);
+  }
+
+  .mr@{i} {
+    margin-right: @i* (1px);
+  }
+
+  .pl@{i} {
+    padding-left: @i* (1px);
+  }
+
+  .pr@{i} {
+    padding-right: @i* (1px);
+  }
+
+  .pt@{i} {
+    padding-top: @i* (1px);
+  }
+
+  .pb@{i} {
+    padding-bottom: @i* (1px);
+  }
+}
+.for(1);
+
+.b-red {
+  border: 1px solid red;
+}
+
+.full-page {
+  display: flex;
+  padding: 12px 20px;
+  flex-direction: column;
+
+  .search-bar {
+    padding: 8px 20px;
+    flex: 0;
+
+    /*
+    *单行条件数据需要将form-item下边距制空
+    *
+    */
+    .search-condition {
+      .ant-col .ant-form-item {
+        margin-bottom: 0;
+      }
+    }
+    // .search-condition {
+    //   flex-direction: row;
+    //   flex-wrap: nowrap;
+    //   display: flex;
+    //   padding: 4px 0;
+
+    //   .search-title {
+    //     display: flex;
+    //     align-items: center;
+    //     width: inherit;
+    //     //min-width: 100px;
+    //     flex: 0;
+    //   }
+
+    //   .search-key {
+    //     flex: 1;
+    //   }
+    // }
+  }
+
+  .table {
+    padding: 8px 20px 0;
+    margin-top: 8px;
+    flex: 1;
+  }
+}
+
+.bg-white {
+  background-color: white;
+}
+
+.btn-text-primary {
+  color: @primary;
+  cursor: pointer;
+}
+
+.btn-text-danger {
+  color: @danger;
+  cursor: pointer;
+}
+
+.btn-text-warning {
+  color: @warning;
+  cursor: pointer;
+}
+
+.btn-text-disabled {
+  color: @disabled;
+  cursor: pointer;
+}
+
+// .btn-primary {
+//   padding: 2px 7px;
+//   color: white;
+//   background-color: @primary;
+//   cursor: pointer;
+//   border-radius: 2px;
+// }
+
+// .btn-danger {
+//   padding: 2px 7px;
+//   color: white;
+//   background-color: @danger;
+//   cursor: pointer;
+//   border-radius: 2px;
+// }
+
+// .btn-warning {
+//   padding: 2px 7px;
+//   color: white;
+//   background-color: @warning;
+//   cursor: pointer;
+//   border-radius: 2px;
+// }
+
+// .btn-disabled {
+//   padding: 2px 7px;
+//   color: white;
+//   background-color: @disabled;
+//   border-radius: 2px;
+//   cursor: pointer;
+// }
