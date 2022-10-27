@@ -1,5 +1,5 @@
 <template>
-  <div>其他</div>
+  <div>大文件上传</div>
 </template>
 <script lang="ts" setup>
 const obj = reactive({})

@@ -1,97 +1,97 @@
 <template>
   <a-layout>
-    <a-layout-sider v-model:collapsed="collapsed" :trigger="null" collapsible>
-      <div class="logo" />
-      <a-menu v-model:selectedKeys="selectedKeys" theme="dark" mode="inline">
-        <a-menu-item key="1">
-          <user-outlined />
-          <span>nav 1</span>
-        </a-menu-item>
-        <a-menu-item key="2">
-          <video-camera-outlined />
-          <span>nav 2</span>
-        </a-menu-item>
-        <a-menu-item key="3">
-          <upload-outlined />
-          <span>nav 3</span>
-        </a-menu-item>
+    <a-layout-sider width="200" style="background: #fff">
+      <a-menu
+        v-model:selectedKeys="selectedKeys2"
+        v-model:openKeys="openKeys"
+        mode="inline"
+        :style="{ height: '100%', borderRight: 0 }"
+      >
+        <template v-for="(el, idx) in asyncRouter" :key="el.path">
+          <template v-if="!el.children">
+            <a-menu-item :key="idx" @click.stop="goPage(el.path)">
+              <template #icon>
+                <PieChartOutlined />
+              </template>
+              {{ el?.meta?.title }}
+            </a-menu-item>
+          </template>
+          <template v-else>
+            <a-sub-menu :key="el.path">
+              <template #title>
+                <span>
+                  <laptop-outlined />
+                  {{ el?.meta?.title }}
+                </span>
+              </template>
+              <a-menu-item
+                v-for="e in el.children"
+                :key="e.path"
+                @click.stop="goPage(e.path)"
+              >
+                {{ e?.meta?.title }}
+              </a-menu-item>
+            </a-sub-menu>
+          </template>
+        </template>
       </a-menu>
     </a-layout-sider>
-    <a-layout>
-      <a-layout-header style="background: #fff; padding: 0">
-        <menu-unfold-outlined
-          v-if="collapsed"
-          class="trigger"
-          style
-          @click="() => (collapsed = !collapsed)"
-        />
-        <menu-fold-outlined
-          v-else
-          class="trigger"
-          @click="() => (collapsed = !collapsed)"
-        />
-      </a-layout-header>
+    <a-layout style="padding: 0 24px 24px">
+      <a-breadcrumb style="margin: 16px 0">
+        <a-breadcrumb-item>Home2</a-breadcrumb-item>
+        <a-breadcrumb-item>List</a-breadcrumb-item>
+        <a-breadcrumb-item>App</a-breadcrumb-item>
+      </a-breadcrumb>
       <a-layout-content
         :style="{
-          margin: '24px 16px',
-          padding: '24px',
           background: '#fff',
+          padding: '24px',
+          margin: 0,
           minHeight: '280px'
         }"
       >
-        Content
+        <router-view></router-view>
       </a-layout-content>
     </a-layout>
   </a-layout>
 </template>
-<script lang="ts">
+<script lang="ts" setup>
 import {
   UserOutlined,
-  VideoCameraOutlined,
-  UploadOutlined,
-  MenuUnfoldOutlined,
-  MenuFoldOutlined
+  LaptopOutlined,
+  NotificationOutlined
 } from '@ant-design/icons-vue'
-import { defineComponent, ref } from 'vue'
-export default defineComponent({
-  components: {
-    UserOutlined,
-    VideoCameraOutlined,
-    UploadOutlined,
-    MenuUnfoldOutlined,
-    MenuFoldOutlined
-  },
-  setup() {
-    return {
-      selectedKeys: ref<string[]>(['1']),
-      collapsed: ref<boolean>(false)
-    }
-  }
-})
+import { routes as asyncRouter } from '@/router'
+import { RouteRecordRaw, useRouter } from 'vue-router'
+const $router = useRouter()
+const selectedKeys1 = ref<string[]>(['2'])
+const selectedKeys2 = ref<string[]>(['1'])
+const collapsed = ref<boolean>(false)
+const openKeys = ref<string[]>()
+console.log('要渲染的', asyncRouter)
+function goPage(path: string) {
+  console.log('object', path)
+  $router.push({ path })
+}
 </script>
 <style>
-#components-layout-demo-custom-trigger .trigger {
-  font-size: 18px;
-  line-height: 64px;
-  padding: 0 24px;
-  cursor: pointer;
-  transition: color 0.3s;
-}
-
-#components-layout-demo-custom-trigger .trigger:hover {
-  color: #1890ff;
-}
-
-#components-layout-demo-custom-trigger .logo {
-  height: 32px;
+#components-layout-demo-top-side-2 .logo {
+  float: left;
+  width: 120px;
+  height: 31px;
+  margin: 16px 24px 16px 0;
   background: rgba(255, 255, 255, 0.3);
-  margin: 16px;
 }
 
-.site-layout .site-layout-background {
+.ant-row-rtl #components-layout-demo-top-side-2 .logo {
+  float: right;
+  margin: 16px 0 16px 24px;
+}
+
+.site-layout-background {
   background: #fff;
 }
-.ant-layout.ant-layout-has-sider {
+.ant-layout {
   height: 100vh;
 }
 </style>
