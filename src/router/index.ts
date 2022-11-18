@@ -77,8 +77,8 @@ export const routes: Array<RouteRecordRaw> = [
         ]
     },
 
-    // 替代vue2中的'*'通配符路径
-    // { path: '/:pathMatch(.*)*', redirect: '/' },
+    // 替代vue2中的'*'通配符路径  
+    { path: '/:pathMatch(.*)*', redirect: '/' },//所有不存在的path,皆会跳转到'/' 
 ];
 
 const router = createRouter({

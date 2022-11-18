@@ -62,8 +62,9 @@ import {
   NotificationOutlined
 } from '@ant-design/icons-vue'
 import { routes as asyncRouter } from '@/router'
-import { RouteRecordRaw, useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 const $router = useRouter()
+const $route = useRoute()
 const selectedKeys1 = ref<string[]>(['2'])
 const selectedKeys2 = ref<string[]>(['1'])
 const collapsed = ref<boolean>(false)

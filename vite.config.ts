@@ -28,7 +28,9 @@ export default defineConfig({
     }
   },
 
-
+  server: {                // ← ← ← ← ← ←
+    host: '0.0.0.0'    // ← 新增内容 ←
+  },
 
   plugins: [vue(),
   // your plugin installation
