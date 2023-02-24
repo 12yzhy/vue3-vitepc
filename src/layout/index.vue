@@ -10,9 +10,9 @@
         <template v-for="(el, idx) in asyncRouter" :key="el.path">
           <template v-if="!el.children">
             <a-menu-item :key="idx" @click.stop="goPage(el.path)">
-              <template #icon>
+              <!-- <template #icon>
                 <PieChartOutlined />
-              </template>
+              </template> -->
               {{ el?.meta?.title }}
             </a-menu-item>
           </template>
