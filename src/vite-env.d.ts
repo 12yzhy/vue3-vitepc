@@ -7,3 +7,6 @@ declare module '*.vue' {
   const component: DefineComponent<{}, {}, any>
   export default component
 }
+declare module 'color'
+declare module '@setCustomTheme'
+declare module '@zougt/vite-plugin-theme-preprocessor'

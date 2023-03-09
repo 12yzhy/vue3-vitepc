@@ -13,9 +13,7 @@ const obj1: ComponentInternalInstance | null = getCurrentInstance()
 // Vue3 中提供了一个 getCurrentInstance 方法来获取当前 Vue 实例
 console.log('当前 Vue 实例', obj1)
 onBeforeRouteLeave((to, from) => {
-  const answer = window.confirm(
-    'Do you really want to leave? you have unsaved changes!'
-  )
+  const answer = window.confirm('你确定你要离开其他页面吗!')
   // 取消导航并停留在同一页面上
   if (!answer) return false
 })
