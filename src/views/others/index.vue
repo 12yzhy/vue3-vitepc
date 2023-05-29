@@ -1,21 +1,16 @@
 <template>
-  <div>其他</div>
+  <div>水印</div>
+  <a-popover v-model:visible="visible" title="Title" trigger="click">
+    <template #content>
+      <a @click="hide">Close</a>
+    </template>
+    <a-button type="primary">Click me</a-button>
+  </a-popover>
 </template>
 <script lang="ts" setup>
-import { ComponentInternalInstance } from 'vue'
-
-const obj = reactive({
-  name: '张三',
-  age: '12'
-})
-const num = ref([1, 2, 3])
-const obj1: ComponentInternalInstance | null = getCurrentInstance()
-// Vue3 中提供了一个 getCurrentInstance 方法来获取当前 Vue 实例
-console.log('当前 Vue 实例', obj1)
-onBeforeRouteLeave((to, from) => {
-  const answer = window.confirm('你确定你要离开其他页面吗!')
-  // 取消导航并停留在同一页面上
-  if (!answer) return false
-})
+const    visible =ref<boolean>(false)
+function hide (){
+  visible.value = false;
+}
 </script>
 <style lang="less" scoped></style>

@@ -40,7 +40,7 @@ export const routes: Array<RouteRecordRaw> = [
         name: 'anothers',
         meta: {
           keepAlive: false, // 不需要缓存标示
-          title: '还没想好'
+          title: '文件夹上传'
         },
         component: () => import('@/views/anothers/index.vue')
       }
@@ -89,7 +89,7 @@ export const routes: Array<RouteRecordRaw> = [
         name: 'page1',
         meta: {
           keepAlive: false, // 不需要缓存标示
-          title: '窗口1'
+          title: '虚拟列表'
         },
         component: () => import('@/views/windows/page1/index.vue')
       },
@@ -101,9 +101,19 @@ export const routes: Array<RouteRecordRaw> = [
           title: '窗口2'
         },
         component: () => import('@/views/windows/page2/index.vue')
+      },
+      {
+        path: '/windows/gantt',
+        name: 'gantt',
+        meta: {
+          keepAlive: false, // 不需要缓存标示
+          title: '甘特图'
+        },
+        component: () => import('@/views/windows/gantt/index.vue')
       }
     ]
   },
+ 
 
   // 替代vue2中的'*'通配符路径
   { path: '/:pathMatch(.*)*', redirect: '/' } //所有不存在的path,皆会跳转到'/'
