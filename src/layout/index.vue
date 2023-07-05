@@ -37,10 +37,8 @@
       </a-menu>
     </a-layout-sider>
     <a-layout style="padding: 0 24px 24px">
-      <a-breadcrumb style="margin: 16px 0">
-        <a-breadcrumb-item>Home2</a-breadcrumb-item>
-        <a-breadcrumb-item>List</a-breadcrumb-item>
-        <a-breadcrumb-item>App</a-breadcrumb-item>
+      <a-breadcrumb  v-if="bumbPath" style="margin: 16px 0">
+        <a-breadcrumb-item v-for="i,index in bumbPath" :key="index">{{ i }}</a-breadcrumb-item>
       </a-breadcrumb>
       <a-layout-content
         :style="{
@@ -69,10 +67,15 @@ const selectedKeys1 = ref<string[]>(['2'])
 const selectedKeys2 = ref<string[]>(['1'])
 const collapsed = ref<boolean>(false)
 const openKeys = ref<string[]>()
+const bumbPath=ref<any>([])
 console.log('要渲染的', asyncRouter)
 function goPage(path: string) {
-  console.log('object', path)
+  getbumbPath(path)
   $router.push({ path })
+}
+function getbumbPath(v:string){
+  bumbPath.value=v.slice(1).split('/')
+  // console.log(bumbPath.value);
 }
 </script>
 <style>

@@ -1,5 +1,5 @@
 <template>
-  <div>面试</div>
+  <div >面试</div>
 </template>
 <script lang="ts" setup>
 const obj = reactive({})

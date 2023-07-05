@@ -50,7 +50,7 @@ export const routes: Array<RouteRecordRaw> = [
     path: '/yzy',
     name: 'yzy',
     meta: {
-      title: '一级路由2'
+      title: '相关插件集成测试'
     },
     component: () => import('@/layout/index.vue'),
     redirect: '/yzy/test',
@@ -69,9 +69,18 @@ export const routes: Array<RouteRecordRaw> = [
         name: 'interview',
         meta: {
           keepAlive: false, // 不需要缓存标示
-          title: '面试'
+          title: '调试'
         },
         component: () => import('@/views/yzy/interview/index.vue')
+      },
+      {
+        path: '/yzy/bpmn',
+        name: 'interview',
+        meta: {
+          keepAlive: false, // 不需要缓存标示
+          title: '流程设计'
+        },
+        component: () => import('@/views/yzy/bpmn/index.vue')
       }
     ]
   },
