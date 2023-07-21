@@ -52,8 +52,8 @@ export const routes: Array<RouteRecordRaw> = [
     meta: {
       title: '相关插件集成测试'
     },
-    component: () => import('@/layout/index.vue'),
     redirect: '/yzy/test',
+    component: () => import('@/layout/index.vue'),
     children: [
       {
         path: '/yzy/test',
@@ -66,7 +66,7 @@ export const routes: Array<RouteRecordRaw> = [
       },
       {
         path: '/yzy/interview',
-        name: 'interview',
+        name: '',
         meta: {
           keepAlive: false, // 不需要缓存标示
           title: '调试'
@@ -75,7 +75,7 @@ export const routes: Array<RouteRecordRaw> = [
       },
       {
         path: '/yzy/bpmn',
-        name: 'interview',
+        name: '',
         meta: {
           keepAlive: false, // 不需要缓存标示
           title: '流程设计'
@@ -84,6 +84,7 @@ export const routes: Array<RouteRecordRaw> = [
       }
     ]
   },
+
   {
     path: '/windows',
     name: 'windows',
@@ -122,7 +123,44 @@ export const routes: Array<RouteRecordRaw> = [
       }
     ]
   },
- 
+  {
+    path: '/yeedoctest',
+    name: 'yeedoctest',
+    meta: {
+      title: '易稻壳项目测试'
+    },
+    redirect: '/yeedoctest/pagetst',
+    component: () => import('@/layout/index.vue'),
+    children: [
+      {
+        path: '/yeedoctest/pagetst',
+        name: 'page1',
+        meta: {
+          keepAlive: false, // 不需要缓存标示
+          title: '流程推进组件action'
+        },
+        component: () => import('@/views/yeedoctest/pagetst/index.vue')
+      }, 
+      // {
+      //   path: '/windows/page2',
+      //   name: 'page2',
+      //   meta: {
+      //     keepAlive: false, // 不需要缓存标示
+      //     title: '窗口2'
+      //   },
+      //   component: () => import('@/views/windows/page2/index.vue')
+      // },
+      // {
+      //   path: '/windows/gantt',
+      //   name: 'gantt',
+      //   meta: {
+      //     keepAlive: false, // 不需要缓存标示
+      //     title: '甘特图'
+      //   },
+      //   component: () => import('@/views/windows/gantt/index.vue')
+      // }
+    ]
+  },
 
   // 替代vue2中的'*'通配符路径
   { path: '/:pathMatch(.*)*', redirect: '/' } //所有不存在的path,皆会跳转到'/'
