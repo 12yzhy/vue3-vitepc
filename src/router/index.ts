@@ -141,15 +141,15 @@ export const routes: Array<RouteRecordRaw> = [
         },
         component: () => import('@/views/yeedoctest/pagetst/index.vue')
       }, 
-      // {
-      //   path: '/windows/page2',
-      //   name: 'page2',
-      //   meta: {
-      //     keepAlive: false, // 不需要缓存标示
-      //     title: '窗口2'
-      //   },
-      //   component: () => import('@/views/windows/page2/index.vue')
-      // },
+      {
+        path: '/yeedoctest/richword',
+        name: 'page2',
+        meta: {
+          keepAlive: false, // 不需要缓存标示
+          title: '富文本集成'
+        },
+        component: () => import('@/views/yeedoctest/richword/index.vue')
+      },
       // {
       //   path: '/windows/gantt',
       //   name: 'gantt',
