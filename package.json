@@ -20,6 +20,7 @@
     "echarts": "^5.4.0",
     "esbuild-windows-64": "^0.15.12",
     "js-md5": "^0.7.3",
+    "json-editor-vue3": "^1.1.1",
     "lodash-es": "^4.17.21",
     "pinia": "^2.0.22",
     "vue": "^3.2.37",
@@ -27,6 +28,7 @@
     "yarn": "^1.22.19"
   },
   "devDependencies": {
+    "@originjs/vite-plugin-commonjs": "^1.0.3",
     "@types/node": "^18.11.5",
     "@typescript-eslint/eslint-plugin": "^5.40.1",
     "@typescript-eslint/parser": "^5.40.1",

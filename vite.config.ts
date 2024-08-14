@@ -9,6 +9,7 @@ import {
   themePreprocessorHmrPlugin
 } from '@zougt/vite-plugin-theme-preprocessor'
 import path from 'path'
+import { viteCommonjs } from '@originjs/vite-plugin-commonjs'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -38,6 +39,7 @@ export default defineConfig({
 
   plugins: [
     vue(),
+    viteCommonjs(),
     // your plugin installation
     Components({
       resolvers: [AntDesignVueResolver()]
