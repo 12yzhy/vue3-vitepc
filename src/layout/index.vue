@@ -5,7 +5,7 @@
         v-model:selectedKeys="selectedKeys2"
         v-model:openKeys="openKeys"
         mode="inline"
-        :style="{ height: '100%', borderRight: 0 }"
+        :style="{ height: '100%', borderRight: 0, overflow:'hidden',overflowY: 'auto',}"
       >
         <template v-for="(el, idx) in asyncRouter" :key="el.path">
           <template v-if="!el.children">
@@ -71,6 +71,7 @@ const bumbPath=ref<any>([])
 console.log('要渲染的', asyncRouter)
 function goPage(path: string) {
   getbumbPath(path)
+  console.log('要跳转的路由',path);
   $router.push({ path })
 }
 function getbumbPath(v:string){

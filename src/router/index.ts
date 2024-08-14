@@ -10,15 +10,15 @@ export const routes: Array<RouteRecordRaw> = [
   },
   {
     path: '/',
-    name: '/',
+    name: 'darsh',
     meta: {
       title: '一级路由1'
     },
     component: () => import('@/layout/index.vue'),
-    redirect: '/others',
+    redirect: '/darsh',
     children: [
       {
-        path: '/others',
+        path: '/darsh',
         name: 'others',
         meta: {
           keepAlive: false, // 不需要缓存标示
@@ -86,32 +86,32 @@ export const routes: Array<RouteRecordRaw> = [
   },
 
   {
-    path: '/windows',
+    path: '/win',
     name: 'windows',
     meta: {
       title: '自己测试'
     },
     component: () => import('@/layout/index.vue'),
-    redirect: '/windows/page1',
+    redirect: '/win/example1',
     children: [
-      {
-        path: '/windows/page1',
-        name: 'page1',
-        meta: {
-          keepAlive: false, // 不需要缓存标示
-          title: '虚拟列表'
-        },
-        component: () => import('@/views/windows/page1/index.vue')
-      },
-      {
-        path: '/windows/page2',
-        name: 'page2',
-        meta: {
-          keepAlive: false, // 不需要缓存标示
-          title: '窗口2'
-        },
-        component: () => import('@/views/windows/page2/index.vue')
-      },
+      // {
+      //   path: '/win/example1',
+      //   name: 'page1',
+      //   meta: {
+      //     keepAlive: false, // 不需要缓存标示
+      //     title: '虚拟列表'
+      //   },
+      //   component: () => import('@/views/windows/page1/index.vue')
+      // },
+      // {
+      //   path: '/windows/example2',
+      //   name: 'page2',
+      //   meta: {
+      //     keepAlive: false, // 不需要缓存标示
+      //     title: '窗口2'
+      //   },
+      //   component: () => import('@/views/windows/page2/index.vue')
+      // },
       {
         path: '/windows/gantt',
         name: 'gantt',
@@ -120,6 +120,15 @@ export const routes: Array<RouteRecordRaw> = [
           title: '甘特图'
         },
         component: () => import('@/views/windows/gantt/index.vue')
+      },
+      {
+        path: '/windows/message',
+        name: 'message',
+        meta: {
+          keepAlive: false, // 不需要缓存标示
+          title: '消息提示'
+        },
+        component: () => import('@/views/windows/message/index.vue')
       }
     ]
   },
